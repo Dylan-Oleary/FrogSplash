@@ -1,7 +1,7 @@
 import React from "react";
-import "./ImageCard.css";
 import ButtonUI from "../ButtonUI/ButtonUI";
 import PhotographerCard from "../PhotographerCard/PhotographerCard";
+import "./ImageCard.scss";
 
 class ImageCard extends React.Component {
     state = {
