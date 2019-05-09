@@ -1,0 +1,69 @@
+.profile-picture {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+}
+
+.photographer-block {
+    position: absolute;
+    top: 0;
+    padding: 2rem 0;
+    width: 200px;
+    background-color: rgba(187,206,221,0.8);
+    z-index: 100;
+    min-height: 250px;
+    height: 95%;
+    overflow:hidden;
+    max-height: 650px;
+    -webkit-transition: width 0.5s;
+    transition: width 0.5s;
+}
+
+.photographer-block-show {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s 0.3s;
+    transition: opacity 0.3s 0.3s;
+}
+
+.photographer-block-hide {
+    opacity: 0;
+    -webkit-transition: opacity 0.05s;
+    transition: opacity 0.05s;
+}
+
+.menu-title {
+    font-size: 1.35rem;
+}
+
+.menu-text {
+    font-size: 1.15rem;
+}
+
+.menu-content {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-social {
+    margin-top: 1rem;
+}
+
+.menu-social span {
+    color: #000;
+}
+
+.photographer-show {
+
+}
+
+.photographer-hide {
+    width: 0;
+}
