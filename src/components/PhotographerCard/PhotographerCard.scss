@@ -41,15 +41,24 @@
         justify-content: space-between;
         align-items: center;
         .block-text {
-            font-size: 1.15rem;
+            font-size: 1rem;
         }
         .block-title {
+            margin: 0 0 0.1rem 0;
             font-size: 1.35rem;
         }
         .block-social {
+            width: 100%;
+            display: flex;
+            justify-content: center;
             margin-top: 1rem;
             span {
+                margin: 0 0.5rem;
                 color: #000;
+                transition: transform 0.2s linear;
+                &:hover {
+                    transform: scale(1.2);
+                }
             }
         }
     }

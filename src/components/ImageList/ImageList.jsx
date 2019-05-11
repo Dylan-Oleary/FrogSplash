@@ -50,7 +50,6 @@ class ImageList extends React.Component {
                     this.state.showModal === true ? (
                         <Modal isOpen={this.state.showModal}>
                             <ImageCard id={"ModalImageCard"} image={this.state.modalImage} isInModal={true} modalPhotographer={this.state.modalPhotographer} closeModal={this.closeModal} />
-                            <h2 className="polaroid-marker">{`Shot By: ${this.state.modalPhotographer.name}`}</h2>
                         </Modal>
                     ) : null
                 }

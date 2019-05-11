@@ -8,7 +8,7 @@ class Modal extends React.Component {
                 <div className="modal-body">
                     {this.props.children}
                 </div>
-                {/* <div className="modal-background"></div> */}
+                <div className="modal-background"></div>
             </div>
         )
     }

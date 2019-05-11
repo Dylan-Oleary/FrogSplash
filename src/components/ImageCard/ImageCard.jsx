@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ButtonUI from "../ButtonUI/ButtonUI";
 import PhotographerCard from "../PhotographerCard/PhotographerCard";
 import "./ImageCard.scss";
@@ -26,10 +26,13 @@ class ImageCard extends React.Component {
                     <img src={urls.regular} alt={description} />
                 </div>
                 {
-                    this.props.isInModal === true ? <PhotographerCard photographer={photographer} display={this.state.isShowingPhotographer}/> : null
-                }
-                {
-                    this.props.isInModal === true ? <ButtonUI onClose={this.props.closeModal} onTogglePhotographer={this.togglePhotographerCard}/> : null
+                    this.props.isInModal === true ? (
+                        <Fragment>
+                            <PhotographerCard photographer={photographer} display={this.state.isShowingPhotographer}/>
+                            <h2 className="polaroid-marker">{`Shot By: ${photographer.name}`}</h2>
+                            <ButtonUI onClose={this.props.closeModal} onTogglePhotographer={this.togglePhotographerCard}/>
+                        </Fragment>
+                    ) : null
                 }
             </div>
         )
