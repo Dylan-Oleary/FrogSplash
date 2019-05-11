@@ -3,7 +3,6 @@ import StackGrid from "react-stack-grid";
 import Modal from "../Modal/Modal";
 import ImageCard from "../ImageCard/ImageCard";
 import Pagination from "../Pagination/Pagination";
-import "./ImageList.scss";
 
 class ImageList extends React.Component {
     state = {

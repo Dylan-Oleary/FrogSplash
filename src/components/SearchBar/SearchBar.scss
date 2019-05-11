@@ -2,13 +2,17 @@
     font-family: 'Permanent Marker', cursive;
     width: 100%;
     padding-top: 350px;
-    & form {
+    -webkit-transition: padding 0.3s linear;
+    -moz-transition: padding 0.3s linear;
+    -o-transition: padding 0.3s linear;
+    transition: padding 0.3s linear;
+    form {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         font-size: 2.5rem;
-        & .input-wrapper {
+        .input-wrapper {
             display: inherit;
             align-items: center;
             height: 45px;
@@ -20,7 +24,7 @@
             -o-transition: height 0.3s linear;
             transition: height 0.3s linear;
         }
-        & .search-input {
+        .search-input {
             padding: 0.3rem;
             font-size: 2.5rem;
             height: 25px;
@@ -35,20 +39,16 @@
             transition: font-size 0.3s linear, height 0.3s linear;
         }
     }
-    -webkit-transition: padding 0.3s linear;
-    -moz-transition: padding 0.3s linear;
-    -o-transition: padding 0.3s linear;
-    transition: padding 0.3s linear;
 }
 
 #SearchBar.nav {
     padding-top: 0; 
-    & form {
+    form {
         margin: 0 auto;
         overflow: hidden;
-        & .input-wrapper {
+        .input-wrapper {
             height: 35px;
-            & .search-input {
+            .search-input {
                 height: 15px;
                 font-size: 1.8rem;
             }  
