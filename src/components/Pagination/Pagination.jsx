@@ -99,7 +99,7 @@ class Pagination extends React.Component {
                 )
             }else{
                 return (
-                    <span className="pagination-number" onClick={this.handlePageNumberClick} key={`page-${page}`}>{page}</span>
+                    <span className="inactive pagination-number" onClick={this.handlePageNumberClick} key={`page-${page}`}>{page}</span>
                 )
             }
         })

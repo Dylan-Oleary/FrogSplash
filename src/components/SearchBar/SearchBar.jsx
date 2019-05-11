@@ -1,10 +1,15 @@
 import React from "react";
+import FontAwesome from "react-fontawesome";
+import "./SearchBar.scss";
 
 class SearchBar extends React.Component {
-    state = {
-        searchTerm: ""
+    constructor(props){
+        super(props);
+        this.state = {
+            searchTerm: this.props.currentSearch ? this.props.currentSearch : ""
+        }
     }
-
+ 
     handleInputChange = event =>{
         this.setState({
             searchTerm: event.target.value
@@ -21,11 +26,11 @@ class SearchBar extends React.Component {
 
     render(){
         return (
-            <div className="ui segment">
-                <form className="ui form" onSubmit={this.onFormSubmit}>
-                    <div className="field">
-                        <label>Image Search</label>
-                        <input type="text" value={this.state.searchTerm} name="search" placeholder="What are you looking for ?" onChange={this.handleInputChange}></input>
+            <div id="SearchBar" className={this.props.className}>
+                <form onSubmit={this.onFormSubmit} autoComplete="off">
+                    <FontAwesome name="camera-retro"/>
+                    <div className="input-wrapper">
+                        <input className="search-input polaroid-marker" ref={this.inputRef} type="text" value={this.state.searchTerm} name="search" onChange={this.handleInputChange} autoFocus spellCheck="false" />
                     </div>
                 </form>
             </div>

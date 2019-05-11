@@ -1,0 +1,32 @@
+#App {
+    .main-container {
+        margin: 0 6rem;
+        .fade-in-appear {
+            opacity: 0;
+        }  
+        .fade-in-appear.fade-in-appear-active {
+        opacity: 1;
+        transition: opacity 3s linear;
+        }
+        .landing {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 3.5rem;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transition: top 1s linear, left 1s linear;
+            -moz-transition: top 1s linear, left 1s linear;
+            -o-transition: top 1s linear, left 1s linear;
+            transition: top 1s linear, left 1s linear;
+        }
+        .nav {
+            font-size: 1.8rem;
+            display: inline-block;
+            top: 0;
+            left: 0;
+            width: 50%;
+        }
+    }
+}

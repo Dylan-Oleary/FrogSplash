@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Fragment }from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar/SearchBar";
 import ImageList from "./ImageList/ImageList";
@@ -14,10 +15,11 @@ class App extends React.Component {
             currentPage: 1
         },
         currentSearch: "",
+        pageStatus: "landing",
         showModal: false
     }
 
-    onSearchSubmit = (searchTerm, page) => {
+    onSearchSubmit = async (searchTerm, page) => {
         unsplash.get("/search/photos", {
             params: {
                 query: searchTerm,
@@ -32,17 +34,40 @@ class App extends React.Component {
                     display: true,
                     totalItems: response.data.total,
                     totalPages: response.data.total_pages,
-                    currentPage: page
-                }
+                    currentPage: page,
+                },
+                pageStatus: "nav"
             });
         })
     }
 
     render(){
         return (
-            <div className="ui container">
-                <SearchBar onSearchSubmit={this.onSearchSubmit}/>
-                <ImageList images={this.state.images} pagination={this.state.pagination} onPageChange={this.onSearchSubmit} currentSearch={this.state.currentSearch}/>
+            <div id="App">
+                <div className="main-container">
+                    {
+                        this.state.pageStatus === "landing" ? (
+                            <Fragment>
+                                <ReactCSSTransitionGroup 
+                                    transitionName="fade-in"
+                                    transitionAppear={true} 
+                                    transitionAppearTimeout={3000}       
+                                    transitionEnter={false}
+                                    transitionLeave={false}
+                                >
+                                    <h1 className={`${this.state.pageStatus} polaroid-marker`}>What do you want to see?</h1>
+                                    <SearchBar onSearchSubmit={this.onSearchSubmit} className="landing-page"/>
+                                </ReactCSSTransitionGroup>
+                            </Fragment>
+                        ) : (
+                            <Fragment>
+                                <h1 onClick={() => this.setState({ pageStatus: "landing"})} className={`${this.state.pageStatus} polaroid-marker`}>What do you want to see?</h1>
+                                <SearchBar currentSearch={this.state.currentSearch} onSearchSubmit={this.onSearchSubmit} className="nav"/>
+                                <ImageList images={this.state.images} pagination={this.state.pagination} onPageChange={this.onSearchSubmit} currentSearch={this.state.currentSearch}/>
+                            </Fragment>
+                        )
+                    }
+                </div>
             </div>
         )
     }
