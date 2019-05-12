@@ -1,19 +1,10 @@
 import React, { Fragment } from "react";
-import ButtonUI from "../ButtonUI/ButtonUI";
 import PhotographerCard from "../PhotographerCard/PhotographerCard";
 import "./ImageCard.scss";
 
 class ImageCard extends React.Component {
     state = {
         isShowingPhotographer: false,
-    }
-
-    togglePhotographerCard = () => {
-        this.state.isShowingPhotographer === false ? (
-            this.setState({ isShowingPhotographer: true})
-        ) : (
-            this.setState({ isShowingPhotographer: false})
-        )
     }
 
     render(){
@@ -28,9 +19,11 @@ class ImageCard extends React.Component {
                 {
                     this.props.isInModal === true ? (
                         <Fragment>
-                            <PhotographerCard photographer={photographer} display={this.state.isShowingPhotographer}/>
+                            <PhotographerCard
+                                display={this.props.isShowingPhotographer}
+                                photographer={photographer}
+                            />
                             <h2 className="polaroid-marker">{`Shot By: ${photographer.name}`}</h2>
-                            <ButtonUI onClose={this.props.closeModal} onTogglePhotographer={this.togglePhotographerCard}/>
                         </Fragment>
                     ) : null
                 }

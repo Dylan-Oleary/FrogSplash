@@ -14,11 +14,10 @@ class ImageList extends React.Component {
         this.props.onPageChange(this.props.currentSearch, newPage)
     }
 
-    showModal = (image, photographer) => {
+    showModal = image => {
         this.setState({
             showModal: true,
-            modalImage: image,
-            modalPhotographer: photographer
+            modalImage: image
         })
     }
 
@@ -37,9 +36,8 @@ class ImageList extends React.Component {
                 <StackGrid monitorImagesLoaded={true} columnWidth={"33.33%"} gutterHeight={2}>
                 {
                     this.props.images.map(image => {
-                        const photographer = image.user;
                         return (
-                            <div className="card-wrapper" onClick={() => this.showModal(image, photographer)} key={image.id}>
+                            <div className="card-wrapper" onClick={() => this.showModal(image)} key={image.id}>
                                 <ImageCard id={"GridImageCard"} image={image}/>
                             </div>
                         )
@@ -48,9 +46,12 @@ class ImageList extends React.Component {
                 </StackGrid>
                 {
                     this.state.showModal === true ? (
-                        <Modal isOpen={this.state.showModal}>
-                            <ImageCard id={"ModalImageCard"} image={this.state.modalImage} isInModal={true} modalPhotographer={this.state.modalPhotographer} closeModal={this.closeModal} />
-                        </Modal>
+                        <Modal 
+                            isOpen={this.state.showModal}
+                            currentImage={this.state.modalImage}
+                            images={this.props.images}
+                            closeModal={this.closeModal}
+                        />
                     ) : null
                 }
             </div>

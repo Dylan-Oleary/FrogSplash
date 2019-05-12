@@ -3,11 +3,8 @@ import FontAwesome from "react-fontawesome";
 import "./SearchBar.scss";
 
 class SearchBar extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            searchTerm: this.props.currentSearch ? this.props.currentSearch : ""
-        }
+    state = {
+        searchTerm: this.props.currentSearch ? this.props.currentSearch : ""
     }
  
     handleInputChange = event =>{

@@ -1,0 +1,23 @@
+#CarouselController {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 820px;
+    top: 40%;
+    left: 50%;
+    margin-left: -410px;
+    z-index: 1000;
+    .carousel-arrow {
+        font-size: 2rem;
+        color: #fff;
+        margin: 0;
+        opacity: 0.4;
+        transition: all 0.2s linear;
+        cursor: pointer;
+        &:hover{
+            opacity: 1;
+            transition: all 0.2s linear;
+            transform: scale(1.1);
+        }
+    }
+}

@@ -7,16 +7,16 @@ class Pagination extends React.Component {
         customPage: ""
     }
 
-    customPage = event => {
-        event.preventDefault();
-
-        this.props.onPageChange(parseInt(this.state.customPage));
-    }
-
     handleInputChange = event => {
         this.setState({
             customPage: event.target.value
         });
+    }
+
+    customPage = event => {
+        event.preventDefault();
+
+        this.props.onPageChange(parseInt(this.state.customPage));
     }
 
     nextPage = () => {
@@ -110,13 +110,21 @@ class Pagination extends React.Component {
             <div id="Pagination">
                 <div className="pagination-wrapper">
                     <span onClick={this.firstPage}>First</span>
-                    <span className="pagination-arrow"><FontAwesome name="angle-double-left" onClick={() => this.bulkPageChange("back")} /></span>
-                    <span className="pagination-arrow"><FontAwesome name="angle-left" onClick={this.previousPage} /></span>
+                    <span className="pagination-arrow">
+                        <FontAwesome name="angle-double-left" onClick={() => this.bulkPageChange("back")} />
+                    </span>
+                    <span className="pagination-arrow">
+                        <FontAwesome name="angle-left" onClick={this.previousPage} />
+                    </span>
                         {
                             this.renderPages()
                         }
-                    <span className="pagination-arrow"><FontAwesome name="angle-right" onClick={this.nextPage} /></span>
-                    <span className="pagination-arrow"><FontAwesome name="angle-double-right" onClick={() => this.bulkPageChange("forward")} /></span>
+                    <span className="pagination-arrow">
+                        <FontAwesome name="angle-right" onClick={this.nextPage} />
+                    </span>
+                    <span className="pagination-arrow">
+                        <FontAwesome name="angle-double-right" onClick={() => this.bulkPageChange("forward")} />
+                    </span>
                     <span onClick={this.lastPage}>Last</span>
                     <form className="custom-page" onSubmit={this.customPage}>
                         <span>Page </span>

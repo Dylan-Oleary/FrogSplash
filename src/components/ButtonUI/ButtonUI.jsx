@@ -7,9 +7,7 @@ class ButtonUI extends React.Component {
         return (
             <div id="ButtonUI">
                 <FontAwesome className="control-button" name="id-card" onClick={() => this.props.onTogglePhotographer()} />
-                <div className="close" onClick={() => this.props.onClose()}>
-                    <FontAwesome className="control-button" name="close" />
-                </div>
+                <FontAwesome className="control-button close" name="window-close" onClick={() => this.props.onClose()} />
             </div>
         )
     }

@@ -51,19 +51,31 @@ class App extends React.Component {
                                 <ReactCSSTransitionGroup 
                                     transitionName="fade-in"
                                     transitionAppear={true} 
-                                    transitionAppearTimeout={3000}       
+                                    transitionAppearTimeout={2000}       
                                     transitionEnter={false}
                                     transitionLeave={false}
                                 >
                                     <h1 className={`${this.state.pageStatus} polaroid-marker`}>What do you want to see?</h1>
-                                    <SearchBar onSearchSubmit={this.onSearchSubmit} className="landing-page"/>
+                                    <SearchBar
+                                        className="landing-page"
+                                        onSearchSubmit={this.onSearchSubmit}
+                                    />
                                 </ReactCSSTransitionGroup>
                             </Fragment>
                         ) : (
                             <Fragment>
-                                <h1 onClick={() => this.setState({ pageStatus: "landing"})} className={`${this.state.pageStatus} polaroid-marker`}>What do you want to see?</h1>
-                                <SearchBar currentSearch={this.state.currentSearch} onSearchSubmit={this.onSearchSubmit} className="nav"/>
-                                <ImageList images={this.state.images} pagination={this.state.pagination} onPageChange={this.onSearchSubmit} currentSearch={this.state.currentSearch}/>
+                                <h1 className={`${this.state.pageStatus} polaroid-marker`} onClick={() => this.setState({ pageStatus: "landing"})}>What do you want to see?</h1>
+                                <SearchBar 
+                                    className="nav" 
+                                    currentSearch={this.state.currentSearch} 
+                                    onSearchSubmit={this.onSearchSubmit}
+                                />
+                                <ImageList
+                                    currentSearch={this.state.currentSearch}
+                                    images={this.state.images}
+                                    onPageChange={this.onSearchSubmit}
+                                    pagination={this.state.pagination} 
+                                />
                             </Fragment>
                         )
                     }
