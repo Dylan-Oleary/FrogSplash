@@ -5,8 +5,8 @@ import "./PhotographerCard.scss";
 class PhotographerCard extends React.Component {
     render(){
         const photographer = this.props.photographer;
-        const displayClass = this.props.display === true ? "show" : "hide"
-        const bodyDisplayClass = this.props.display === true ? "photographer-block-show" : "photographer-block-hide"
+        const displayClass = this.props.display === true ? "show" : "hide";
+        const bodyDisplayClass = this.props.display === true ? "photographer-block-show" : "photographer-block-hide";
         
         return (
             <div id="PhotographerCard" className={`${displayClass}`}>
