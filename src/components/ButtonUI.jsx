@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import "./ButtonUI.scss";
+// import "./ButtonUI.scss";
 
 class ButtonUI extends React.Component {
     render(){

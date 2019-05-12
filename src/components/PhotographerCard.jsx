@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import "./PhotographerCard.scss";
+// import "./PhotographerCard.scss";
 
 class PhotographerCard extends React.Component {
     render(){

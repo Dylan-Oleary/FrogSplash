@@ -1,8 +1,8 @@
 import React from "react";
 import StackGrid from "react-stack-grid";
-import Modal from "../Modal/Modal";
-import ImageCard from "../ImageCard/ImageCard";
-import Pagination from "../Pagination/Pagination";
+import Modal from "./Modal";
+import ImageCard from "./ImageCard";
+import Pagination from "./Pagination";
 
 class ImageList extends React.Component {
     state = {

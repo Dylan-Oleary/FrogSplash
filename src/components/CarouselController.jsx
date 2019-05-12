@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import "./CarouselController.scss";
+// import "./CarouselController.scss";
 
 class CarouselController extends React.Component {
     render(){

@@ -1,9 +1,9 @@
 import React, { Fragment }from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import unsplash from "../api/unsplash";
-import SearchBar from "./SearchBar/SearchBar";
-import ImageList from "./ImageList/ImageList";
-import "./App.scss";
+import SearchBar from "./SearchBar";
+import ImageList from "./ImageList";
+// import "./App.scss";
 
 class App extends React.Component {
     state = {

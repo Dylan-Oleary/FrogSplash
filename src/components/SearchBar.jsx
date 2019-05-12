@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import "./SearchBar.scss";
+// import "./SearchBar.scss";
 
 class SearchBar extends React.Component {
     state = {

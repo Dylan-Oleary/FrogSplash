@@ -1,8 +1,8 @@
 import React from "react";
-import ImageCard from "../ImageCard/ImageCard";
-import ButtonUI from "../ButtonUI/ButtonUI";
-import CarouselController from "../CarouselController/CarouselController";
-import "./Modal.scss";
+import ImageCard from "./ImageCard";
+import ButtonUI from "./ButtonUI";
+import CarouselController from "./CarouselController";
+// import "./Modal.scss";
 
 class Modal extends React.Component {
     state = {

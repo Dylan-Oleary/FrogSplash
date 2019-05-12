@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import PhotographerCard from "../PhotographerCard/PhotographerCard";
-import "./ImageCard.scss";
+import PhotographerCard from "./PhotographerCard";
+// import "./ImageCard.scss";
 
 class ImageCard extends React.Component {
     state = {

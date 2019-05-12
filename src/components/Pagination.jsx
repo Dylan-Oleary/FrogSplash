@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import "./Pagination.scss"
+// import "./Pagination.scss"
 
 class Pagination extends React.Component {
     state = {
