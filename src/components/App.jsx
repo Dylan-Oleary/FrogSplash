@@ -41,7 +41,7 @@ class App extends React.Component {
         unsplash.get("/search/photos", {
             params: {
                 query: searchTerm,
-                per_page: 50,
+                per_page: 30,
                 page: page
             }
         }).then(response => {
