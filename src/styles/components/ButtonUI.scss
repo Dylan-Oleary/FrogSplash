@@ -9,5 +9,37 @@
         &.close {
             color: #B12C1A;
         }
+        &.photographer-toggle {
+            color: #403f3f;
+        }
+    }
+}
+
+//Media Queries
+#ButtonUI {
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-S-cap) {
+        .control-button {
+            font-size: 1rem;
+        }
+    }
+    @media screen and (min-width: $mobile-M) and (max-width: $mobile-M-cap) {
+        .control-button {
+            font-size: 1.2rem;
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap) {
+        .control-button {
+            font-size: 1.3rem;
+        }
+    }
+    @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap) {
+        .control-button {
+            font-size: 1.4rem;
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap) {
+        .control-button {
+            font-size: 1.6rem;
+        }
     }
 }

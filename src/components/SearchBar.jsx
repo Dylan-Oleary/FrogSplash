@@ -25,10 +25,19 @@ class SearchBar extends React.Component {
         return (
             <div id="SearchBar" className={this.props.className}>
                 <form onSubmit={this.onFormSubmit} autoComplete="off">
-                    <FontAwesome name="camera-retro"/>
-                    <div className="input-wrapper">
-                        <input className="search-input polaroid-marker" ref={this.inputRef} type="text" value={this.state.searchTerm} name="search" onChange={this.handleInputChange} autoFocus spellCheck="false" />
-                    </div>
+                    {
+                        this.props.icon === true ? <FontAwesome name="camera-retro"/> : null
+                    }
+                    <input 
+                        className="search-input polaroid-marker" 
+                        ref={this.inputRef} 
+                        type="text" 
+                        value={this.state.searchTerm} 
+                        name="search" onChange={this.handleInputChange} 
+                        autoFocus 
+                        spellCheck="false" 
+                        placeholder={this.props.placeholder ? this.props.placeholder : ""}
+                    />
                 </form>
             </div>
         )

@@ -2,69 +2,154 @@
 
 #Pagination {
     display: flex;
-    height: 80px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 1rem 0;
-    font-family: 'Lato', sans-serif;
-    .pagination-wrapper {
+    font-family: $font-main;
+    .control-wrapper {
         display: flex;
         justify-content: center;
-        align-items: center;
-        cursor: pointer;
+        flex-grow: 2;
+        .controls{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 550px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            span {
+                padding: 0.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .inactive {
+                transition: 0.2s transform ease-out;
+                &:hover{
+                    transform: scale(1.25);
+                }
+            }
+            .active {
+                padding: 0 1rem 0 ;
+                font-size: 1.7rem;
+                font-family: $font-polaroid;
+                border-bottom: 3px solid #000;
+                border-radius: 10px;
+                box-shadow: 0 8px 6px -6px black;
+            }
+            .pagination-arrow {
+                font-size: 1.95rem;
+                transition: transform 0.2s;
+                &:hover{
+                    transform: scale(1.5);
+                }
+            }
+        }    
+    }
+    .custom-page {
+        display: flex;
+        margin-left: 0.2rem;
+        font-size: 1.5rem;
         span {
-            margin: 0 0.3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            margin-left: 0.2rem;
         }
-        .pagination-number {
-            padding: 0.55rem;
-            font-size: 1.25rem;
-        }
-        .inactive {
-            transition: 0.2s transform ease-out;
-            &:hover{
-                border-radius: 20px;
-                background-color: rgb(187, 206, 221);
-                transform: scale(1.25);
+        input {
+            border: none;
+            width: 60px;
+            border-bottom: 1px solid black;
+            font-size: 1.5rem;
+            font-family: inherit;
+            cursor: pointer;
+            &:focus{
+                outline: none;
             }
-        }
-        .active {
-            padding: 0 1rem 0 ;
-            font-size: 2rem;
-            font-family: 'Permanent Marker', cursive;
-            border-bottom: 3px solid #000;
-            border-radius: 10px;
-            box-shadow: 0 8px 6px -6px black;
-        }
-        .pagination-arrow {
-            font-size: 1.95rem;
-            transition: transform 0.2s;
-            &:hover{
-                transform: scale(1.5);
+            &::-webkit-inner-spin-button,
+            ::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                display: none;
+            }
+        }   
+    }
+}
+
+//Media Query
+#Pagination {
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
+        .controls {
+            max-width: 260px !important;
+            font-size: 0.9rem !important;
+            .active {
+                font-size: 1.1rem !important;
+            }
+            .pagination-arrow {
+                font-size: 1.1rem !important;
             }
         }
         .custom-page {
-            display: flex;
-            margin-left: 2rem;
+            font-size: 0.7rem;
             input {
-                border: none;
+                width: 25px;
+                font-size: 0.7rem;
+            }
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap){
+        .controls {
+            max-width: 280px !important;
+            font-size: 1rem !important;
+            .active {
+                font-size: 1.2rem !important;
+            }
+            .pagination-arrow {
+                font-size: 1.45rem !important;
+            }
+        }
+        .custom-page {
+            font-size: 0.8rem;
+            input {
+                width: 35px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+    @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap){
+        .controls {
+            max-width: 375px !important;
+            font-size: 1.3rem !important;
+            .active {
+                font-size: 1.5rem !important;
+            }
+            .pagination-arrow {
+                font-size: 1.75rem !important;
+            }
+        }
+        .custom-page {
+            font-size: 1rem;
+            input {
                 width: 45px;
-                border-bottom: 1px solid black;
-                padding-left: .5rem;
-                font-size: 16px;
-                font-family: inherit;
-                cursor: pointer;
-                &:focus{
-                    outline: none;
-                }
-                &::-webkit-inner-spin-button,
-                ::-webkit-outer-spin-button {
-                    -webkit-appearance: none;
-                    display: none;
-                }
-            }   
+                font-size: 1rem;
+            }
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
+        .controls {
+            max-width: 420px !important;
+            font-size: 1.3rem !important;
+            .active {
+                font-size: 1.5rem !important;
+            }
+            .pagination-arrow {
+                font-size: 1.75rem !important;
+            }
+        }
+        .custom-page {
+            font-size: 1.3rem;
+            input {
+                width: 55px;
+                font-size: 1.3rem;
+            }
         }
     }
 }

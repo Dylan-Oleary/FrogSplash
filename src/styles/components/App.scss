@@ -10,28 +10,76 @@
         opacity: 1;
         transition: opacity 2s linear;
         }
-        .landing {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            font-size: 3.5rem;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            -webkit-transition: top 1s linear, left 1s linear;
-            -moz-transition: top 1s linear, left 1s linear;
-            -o-transition: top 1s linear, left 1s linear;
-            transition: top 1s linear, left 1s linear;
+        .landing-page-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            padding-top: 2rem;
+            .landing-page-title {
+                text-align: center;
+                font-size: 6rem;
+                margin: 2rem auto;
+            }
+            .landing-page-text {
+                width: 60%;
+                margin: 0.5rem auto;
+                text-align: center;
+                font-family: $font-main;
+                line-height: 1.7rem;
+            }
         }
-        .nav {
-            font-size: 1.8rem;
-            display: inline-block;
-            top: 0;
-            left: 0;
-            width: 50%;
+        .nav-page-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            h1 {
+                margin: 0;
+                font-size: 3rem;
+            }
         }
         .polaroid-marker {
-            font-family: 'Permanent Marker', cursive;
+            font-family: $font-polaroid;
+        }
+    }
+}
+
+//Media Queries
+#App {
+    .main-container {
+        @media screen and (min-width: $mobile-S) and (max-width: $tablet-cap){
+            margin: 0 0.5rem;
+        }
+        .landing-page-wrapper {
+            @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
+                .landing-page-title {
+                    font-size: 2.5rem;
+                }
+            }
+            @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
+                .landing-page-title {
+                    font-size: 3.5rem;
+                }
+            }
+        }
+        .nav-page-wrapper {
+            @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
+                margin-bottom: 1rem;
+                h1 {
+                    font-size: 1.5rem;
+                }
+            }
+            @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
+                margin-bottom: 1.5rem;
+                h1 {
+                    font-size: 1.8rem;
+                }
+            }
+            @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
+                margin-bottom: 1.7rem;
+                h1 {
+                    font-size: 2.5rem;
+                }
+            }
         }
     }
 }

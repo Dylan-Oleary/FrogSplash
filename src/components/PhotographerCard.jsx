@@ -1,7 +1,7 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-// import "./PhotographerCard.scss";
-
+import { ReactComponent as InstagramIcon } from "../static/svg/instagram.svg";
+import { ReactComponent as TwitterIcon } from "../static/svg/twitter.svg";
 class PhotographerCard extends React.Component {
     render(){
         const photographer = this.props.photographer;
@@ -18,10 +18,10 @@ class PhotographerCard extends React.Component {
                     <p className="block-text">{photographer.bio}</p>
                     <div className="block-social">
                         <a href={`https://www.instagram.com/${photographer.instagram_username}/`}>
-                            <FontAwesome name="instagram" size="2x"/>
+                            <InstagramIcon className="brand-icon" />
                         </a>
                         <a href={`https://www.twitter.com/${photographer.twitter_username}/`}>
-                            <FontAwesome name="twitter" size="2x"/>
+                            <TwitterIcon className="brand-icon" />
                         </a>
                     </div>
                 </div>

@@ -3,27 +3,45 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
-// import "./App.scss";
 
 class App extends React.Component {
-    state = {
-        images: [],
-        pagination: {
-            display: false,
-            totalItems: null,
-            totalPages: null,
-            currentPage: 1
-        },
-        currentSearch: "",
-        pageStatus: "landing",
-        showModal: false
+    constructor(props){
+        super(props);
+        this.state = {
+            images: [],
+            pagination: {
+                display: false,
+                totalItems: null,
+                totalPages: null,
+                currentPage: 1
+            },
+            currentSearch: "",
+            pageStatus: "landing",
+            showModal: false,
+            browserWidth: 0
+        }
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+      
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+      
+    updateWindowDimensions = () => {
+        const browserWidth = window.window.innerWidth;
+
+        this.setState({ browserWidth });
     }
 
     onSearchSubmit = async (searchTerm, page) => {
         unsplash.get("/search/photos", {
             params: {
                 query: searchTerm,
-                per_page: 12,
+                per_page: 18,
                 page: page
             }
         }).then(response => {
@@ -43,7 +61,7 @@ class App extends React.Component {
 
     render(){
         return (
-            <div id="App">
+            <div id="App" ref={this.browserWidthRef}>
                 <div className="main-container">
                     {
                         this.state.pageStatus === "landing" ? (
@@ -55,26 +73,44 @@ class App extends React.Component {
                                     transitionEnter={false}
                                     transitionLeave={false}
                                 >
-                                    <h1 className={`${this.state.pageStatus} polaroid-marker`}>What do you want to see?</h1>
-                                    <SearchBar
-                                        className="landing-page"
-                                        onSearchSubmit={this.onSearchSubmit}
-                                    />
+                                    <div className="landing-page-wrapper">
+                                        <h1 className={`${this.state.pageStatus}-page-title polaroid-marker`}>FrogSplash</h1>
+                                        <p className="landing-page-text">
+                                            FrogSplash is simple.
+                                        </p>
+                                        <p className="landing-page-text">
+                                            Ask your brain what you want to look at and search for it down below. 
+                                            Using the Unsplash API, FrogSplash goes for a swim and brings you back your photos.
+                                        </p>
+                                        <p className="landing-page-text">
+                                        Now go make a splash!
+                                        </p>
+                                        <SearchBar
+                                            className="landing-page-search"
+                                            onSearchSubmit={this.onSearchSubmit}
+                                            placeholder="Dive In..."
+                                            icon={false}
+                                        />
+                                    </div>
                                 </ReactCSSTransitionGroup>
                             </Fragment>
                         ) : (
                             <Fragment>
-                                <h1 className={`${this.state.pageStatus} polaroid-marker`} onClick={() => this.setState({ pageStatus: "landing"})}>What do you want to see?</h1>
-                                <SearchBar 
-                                    className="nav" 
-                                    currentSearch={this.state.currentSearch} 
-                                    onSearchSubmit={this.onSearchSubmit}
-                                />
+                                <div className="nav-page-wrapper">
+                                    <h1 className={`${this.state.pageStatus}-page-title polaroid-marker`} onClick={() => this.setState({ pageStatus: "landing"})}>FrogSplash</h1>
+                                    <SearchBar 
+                                        className="nav-page-search" 
+                                        currentSearch={this.state.currentSearch} 
+                                        onSearchSubmit={this.onSearchSubmit}
+                                        icon={true}
+                                    />
+                                </div>
                                 <ImageList
                                     currentSearch={this.state.currentSearch}
                                     images={this.state.images}
                                     onPageChange={this.onSearchSubmit}
-                                    pagination={this.state.pagination} 
+                                    pagination={this.state.pagination}
+                                    browserWidth={this.state.browserWidth} 
                                 />
                             </Fragment>
                         )

@@ -15,9 +15,9 @@
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-        padding: 20px;
+        padding: 15px;
         background: #fff;
-        margin: 40px auto;
+        margin: 80px auto;
         z-index: 100;
         width: 700px;
         height: 600px;
@@ -47,7 +47,6 @@
         overflow:hidden;
         max-height: 650px;
         background-color: #000000;
-        background-image: url("/src/static/images/polaroid-texture.png");
         img {
             width: auto;
             max-width: 100%;
@@ -56,5 +55,87 @@
     }
     h2 {
         margin-bottom: 0.5rem;
+    }
+}
+
+//Media Queries
+#Modal {
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-S-cap) {
+        .modal-body {
+            margin: 170px auto;
+            padding: 7px;
+            width: 290px;
+            height: 260px;
+        }
+    }
+    @media screen and (min-width: $mobile-M) and (max-width: $mobile-M-cap) {
+        .modal-body {
+            margin: 170px auto;
+            padding: 7px;
+            width: 325px;
+            height: 280px;
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap) {
+        .modal-body {
+            margin: 170px auto;
+            padding: 8px;
+            width: 365px;
+            height: 315px;
+        }
+    }
+    @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap) {
+        .modal-body {
+            margin: 170px auto;
+            padding: 9px;
+            width: 425px;
+            height: 366px;
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap) {
+        .modal-body {
+            margin: 70px auto;
+            padding: 15px;
+            width: 600px;
+            height: 517px;
+        }
+    }
+}
+
+#ModalImageCard {
+    @media screen and (min-width: $mobile-S) and (max-width: $tablet-cap) {
+        .image-wrapper{
+            min-height: 0 !important;
+        }
+    }
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-S-cap) {
+        h2 {
+            margin: 0;
+            font-size: 1rem;
+        }
+    }
+    @media screen and (min-width: $mobile-M) and (max-width: $mobile-M-cap) {
+        h2 {
+            margin: 0;
+            font-size: 1rem;
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap) {
+        h2 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
+    @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap) {
+        h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap) {
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
     }
 }

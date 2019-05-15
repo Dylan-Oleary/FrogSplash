@@ -1,59 +1,118 @@
 @import "../variables.scss";
 
-#SearchBar {
-    font-family: 'Permanent Marker', cursive;
-    width: 100%;
-    padding-top: 350px;
-    -webkit-transition: padding 0.3s linear;
-    -moz-transition: padding 0.3s linear;
-    -o-transition: padding 0.3s linear;
-    transition: padding 0.3s linear;
+#SearchBar{
+    font-family: $font-polaroid;
     form {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         width: 100%;
-        font-size: 2.5rem;
-        .input-wrapper {
-            display: inherit;
-            align-items: center;
-            height: 45px;
-            border: 3px solid black;
-            border-radius: 10px;
-            margin-left: 1rem;
-            -webkit-transition: height 0.3s linear;
-            -moz-transition: height 0.3s linear;
-            -o-transition: height 0.3s linear;
-            transition: height 0.3s linear;
-        }
         .search-input {
-            padding: 0.3rem;
-            font-size: 2.5rem;
-            height: 25px;
-            border:none;
+            display: flex;
+            align-items: center;
             cursor: pointer;
             &:focus{
                 outline: none;
             }
-            -webkit-transition: font-size 0.3s linear, height 0.3s linear;
-            -moz-transition: font-size 0.3s linear, height 0.3s linear;
-            -o-transition: font-size 0.3s linear, height 0.3s linear;
-            transition: font-size 0.3s linear, height 0.3s linear;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding-bottom: 0.2rem;
+            padding-left: 0.5rem;
+            margin-left: 0.3rem;
+        }
+        span {
+            display: flex;
+            align-items: center;
+        }
+    }
+    &.landing-page-search {
+        display: flex;
+        width: 100%;
+        margin-top: 3rem;
+        form {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            .search-input {
+                width: 80%;
+                height: 65px;
+                text-align: center;
+                font-size: 3.5rem;
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+    &.nav-page-search {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        form {
+            .search-input {
+                width: 80%;
+                height: 40px;
+                font-size: 2rem;
+            }
+            span {
+                font-size: 2.7rem;
+            }  
+        }
+    }
+
+}
+
+//Media Queries
+#SearchBar.landing-page-search {
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
+        .search-input {
+            height: 20px !important;
+            font-size: 1.2rem !important;
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
+        .search-input {
+            height: 25px !important;
+            font-size: 1.4rem !important;
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
+        .search-input {
+            height: 50px !important;
+            font-size: 3rem !important;
+            padding-left: 0.9rem !important;
         }
     }
 }
 
-#SearchBar.nav {
-    padding-top: 0; 
-    form {
-        margin: 0 auto;
-        overflow: hidden;
-        .input-wrapper {
-            height: 35px;
-            .search-input {
-                height: 15px;
-                font-size: 1.8rem;
-            }  
+#SearchBar.nav-page-search {
+    @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
+        .search-input {
+            height: 16px !important;
+            font-size: 1rem !important;
+        }
+        span {
+            font-size: 1.4rem !important;
+        }
+    }
+    @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
+        .search-input {
+            height: 20px !important;
+            font-size: 1.2rem !important;
+        }
+        span {
+            font-size: 2rem !important;
+        }
+    }
+    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
+        .search-input {
+            height: 32px !important;
+            font-size: 2rem !important;
+            padding-left: 0.9rem !important;
+        }
+        span {
+            font-size: 2.2rem !important;
         }
     }
 }

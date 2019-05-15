@@ -27,14 +27,6 @@ class Pagination extends React.Component {
         this.props.onPageChange(this.props.pagination.currentPage - 1);
     }
 
-    firstPage = () => {
-        this.props.onPageChange(1);
-    }
-
-    lastPage = () => {
-        this.props.onPageChange(this.props.pagination.totalPages);
-    }
-
     bulkPageChange = direction => {
         let newPage = 0;
         let pagesToJump = 20;
@@ -108,30 +100,21 @@ class Pagination extends React.Component {
     render(){
         return (
             <div id="Pagination">
-                <div className="pagination-wrapper">
-                    <span onClick={this.firstPage}>First</span>
-                    <span className="pagination-arrow">
-                        <FontAwesome name="angle-double-left" onClick={() => this.bulkPageChange("back")} />
-                    </span>
-                    <span className="pagination-arrow">
-                        <FontAwesome name="angle-left" onClick={this.previousPage} />
-                    </span>
+                <div className="control-wrapper">
+                    <div className="controls">
+                        <FontAwesome className="pagination-arrow" name="angle-double-left" onClick={() => this.bulkPageChange("back")} />
+                        <FontAwesome className="pagination-arrow" name="angle-left" onClick={this.previousPage} />
                         {
                             this.renderPages()
                         }
-                    <span className="pagination-arrow">
-                        <FontAwesome name="angle-right" onClick={this.nextPage} />
-                    </span>
-                    <span className="pagination-arrow">
-                        <FontAwesome name="angle-double-right" onClick={() => this.bulkPageChange("forward")} />
-                    </span>
-                    <span onClick={this.lastPage}>Last</span>
-                    <form className="custom-page" onSubmit={this.customPage}>
-                        <span>Page </span>
-                        <input type="number" value={this.state.customPage} name="custom-page" placeholder={this.props.currentPage} onChange={this.handleInputChange} min="1" max={this.props.pagination.totalPages}></input>
-                        <span>/ {this.props.pagination.totalPages}</span>
-                    </form>
+                        <FontAwesome className="pagination-arrow" name="angle-right" onClick={this.nextPage} />
+                        <FontAwesome className="pagination-arrow" name="angle-double-right" onClick={() => this.bulkPageChange("forward")} />
+                    </div>
                 </div>
+                <form className="custom-page" onSubmit={this.customPage}>
+                    <input type="number" value={this.state.customPage} name="custom-page" placeholder={"Pg #"} onChange={this.handleInputChange} min="1" max={this.props.pagination.totalPages}></input>
+                    <span>/ {this.props.pagination.totalPages}</span>
+                </form>
             </div>
         )
     }

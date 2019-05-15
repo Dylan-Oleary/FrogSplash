@@ -4,9 +4,26 @@ $mobile-S-cap: 374px;
 $mobile-M: 375px;
 $mobile-M-cap: 424px;
 $mobile-L: 425px;
-$mobile-L-cap: 767px;
+$mobile-L-cap: 566px;
+$mobile-XL: 567px;
+$mobile-XL-cap: 767px;
 $tablet: 768px;
 $tablet-cap: 1023px;
 $laptop: 1024px;
 $laptop-cap: 1439px;
 $desktop: 1440px;
+
+//Fonts
+$font-polaroid: 'Permanent Marker', cursive;
+$font-main: 'Lato', sans-serif;
+
+//Colors
+@mixin instagram {
+    color: #fff;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
+    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+@mixin twitter {
+    color: #fff;
+    background: #00aced;
+}

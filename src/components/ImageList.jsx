@@ -26,6 +26,18 @@ class ImageList extends React.Component {
             showModal: false
         })
     }
+
+    calculateColumnWidth = () => {
+        const browserWidth = this.props.browserWidth;
+
+        if(browserWidth < 425){
+            return "100%";
+        } else if(browserWidth >= 425 && browserWidth < 1024){
+            return "50%";
+        } else {
+            return "33.33%";
+        }
+    }
     
     render(){
         return (
@@ -33,7 +45,7 @@ class ImageList extends React.Component {
                 {
                     this.props.pagination.display === true ? <Pagination pagination={this.props.pagination} onPageChange={this.onPageChange} /> : null
                 }
-                <StackGrid monitorImagesLoaded={true} columnWidth={"33.33%"} gutterHeight={2}>
+                <StackGrid monitorImagesLoaded={true} columnWidth={this.calculateColumnWidth()} gutterHeight={2}>
                 {
                     this.props.images.map(image => {
                         return (
