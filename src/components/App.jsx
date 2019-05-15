@@ -41,7 +41,7 @@ class App extends React.Component {
         unsplash.get("/search/photos", {
             params: {
                 query: searchTerm,
-                per_page: 18,
+                per_page: 50,
                 page: page
             }
         }).then(response => {
@@ -62,33 +62,32 @@ class App extends React.Component {
     render(){
         return (
             <div id="App" ref={this.browserWidthRef}>
-                <div className="main-container">
+                <div className={`main-container ${this.state.pageStatus}`}>
                     {
                         this.state.pageStatus === "landing" ? (
                             <Fragment>
                                 <ReactCSSTransitionGroup 
                                     transitionName="fade-in"
                                     transitionAppear={true} 
-                                    transitionAppearTimeout={2000}       
+                                    transitionAppearTimeout={800}       
                                     transitionEnter={false}
                                     transitionLeave={false}
                                 >
                                     <div className="landing-page-wrapper">
                                         <h1 className={`${this.state.pageStatus}-page-title polaroid-marker`}>FrogSplash</h1>
                                         <p className="landing-page-text">
-                                            FrogSplash is simple.
+                                            Think about what you want to see.
                                         </p>
                                         <p className="landing-page-text">
-                                            Ask your brain what you want to look at and search for it down below. 
-                                            Using the Unsplash API, FrogSplash goes for a swim and brings you back your photos.
+                                            Jump from the top rope into the search bar.
                                         </p>
                                         <p className="landing-page-text">
-                                        Now go make a splash!
+                                            Make a splash.
                                         </p>
                                         <SearchBar
                                             className="landing-page-search"
                                             onSearchSubmit={this.onSearchSubmit}
-                                            placeholder="Dive In..."
+                                            placeholder="Search"
                                             icon={false}
                                         />
                                     </div>

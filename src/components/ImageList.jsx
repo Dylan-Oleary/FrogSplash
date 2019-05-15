@@ -3,6 +3,7 @@ import StackGrid from "react-stack-grid";
 import Modal from "./Modal";
 import ImageCard from "./ImageCard";
 import Pagination from "./Pagination";
+import Error from "./Error";
 
 class ImageList extends React.Component {
     state = {
@@ -41,33 +42,39 @@ class ImageList extends React.Component {
     
     render(){
         return (
-            <div id="ImageList">
-                {
-                    this.props.pagination.display === true ? <Pagination pagination={this.props.pagination} onPageChange={this.onPageChange} /> : null
-                }
-                <StackGrid monitorImagesLoaded={true} columnWidth={this.calculateColumnWidth()} gutterHeight={2}>
-                {
-                    this.props.images.map(image => {
-                        return (
-                            <div className="card-wrapper" onClick={() => this.showModal(image)} key={image.id}>
-                                <ImageCard id={"GridImageCard"} image={image}/>
-                            </div>
-                        )
-                    })
-                }
-                </StackGrid>
-                {
-                    this.state.showModal === true ? (
-                        <Modal 
-                            isOpen={this.state.showModal}
-                            currentImage={this.state.modalImage}
-                            images={this.props.images}
-                            closeModal={this.closeModal}
-                        />
-                    ) : null
-                }
-            </div>
-  
+            this.props.images.length === 0 ? (
+                <Error searchTerm={this.props.currentSearch} />
+            ) : (
+                <div id="ImageList">
+                    {
+                        this.props.pagination.display === true ? <Pagination pagination={this.props.pagination} onPageChange={this.onPageChange} browserWidth={this.props.browserWidth}/> : null
+                    }
+                    <StackGrid className="image-grid" monitorImagesLoaded={true} columnWidth={this.calculateColumnWidth()} gutterHeight={5}>
+                    {
+                        this.props.images.map(image => {
+                            return (
+                                <div className="card-wrapper" onClick={() => this.showModal(image)} key={image.id}>
+                                    <ImageCard id={"GridImageCard"} image={image}/>
+                                </div>
+                            )
+                        })
+                    }
+                    </StackGrid>
+                    {
+                        this.props.pagination.display === true ? <Pagination pagination={this.props.pagination} onPageChange={this.onPageChange} browserWidth={this.props.browserWidth}/> : null
+                    }
+                    {
+                        this.state.showModal === true ? (
+                            <Modal 
+                                isOpen={this.state.showModal}
+                                currentImage={this.state.modalImage}
+                                images={this.props.images}
+                                closeModal={this.closeModal}
+                            />
+                        ) : null
+                    }
+                </div>
+            )
         )
     }
 }

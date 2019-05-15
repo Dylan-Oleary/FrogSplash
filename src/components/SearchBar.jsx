@@ -1,6 +1,5 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-// import "./SearchBar.scss";
 
 class SearchBar extends React.Component {
     state = {
@@ -26,7 +25,7 @@ class SearchBar extends React.Component {
             <div id="SearchBar" className={this.props.className}>
                 <form onSubmit={this.onFormSubmit} autoComplete="off">
                     {
-                        this.props.icon === true ? <FontAwesome name="camera-retro"/> : null
+                        this.props.icon === true ? <FontAwesome name="frog"/> : null
                     }
                     <input 
                         className="search-input polaroid-marker" 

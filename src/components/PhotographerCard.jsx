@@ -1,5 +1,4 @@
 import React from "react";
-import FontAwesome from "react-fontawesome";
 import { ReactComponent as InstagramIcon } from "../static/svg/instagram.svg";
 import { ReactComponent as TwitterIcon } from "../static/svg/twitter.svg";
 class PhotographerCard extends React.Component {
@@ -11,7 +10,7 @@ class PhotographerCard extends React.Component {
         return (
             <div id="PhotographerCard" className={`${displayClass}`}>
                 <div className={`profile-picture ${bodyDisplayClass}`}>
-                    <img src={photographer.profile_image.large}></img>
+                    <img src={photographer.profile_image.large} alt={photographer.name}></img>
                 </div>
                 <div className={`block-content ${bodyDisplayClass}`}>
                     <p className="block-title">{photographer.name}</p>

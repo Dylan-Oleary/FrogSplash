@@ -18,6 +18,7 @@ $font-polaroid: 'Permanent Marker', cursive;
 $font-main: 'Lato', sans-serif;
 
 //Colors
+$primary-text: #4ae01d;
 @mixin instagram {
     color: #fff;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
@@ -26,4 +27,13 @@ $font-main: 'Lato', sans-serif;
 @mixin twitter {
     color: #fff;
     background: #00aced;
+}
+
+//Shadows
+@mixin letterpress {
+    color: #222;
+    text-shadow: 0px 2px 3px #555;
+}
+@mixin titleShadow {
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
 }

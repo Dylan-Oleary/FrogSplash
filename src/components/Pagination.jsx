@@ -1,6 +1,5 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-// import "./Pagination.scss"
 
 class Pagination extends React.Component {
     state = {
@@ -20,11 +19,15 @@ class Pagination extends React.Component {
     }
 
     nextPage = () => {
-        this.props.onPageChange(this.props.pagination.currentPage + 1);
+        const page = this.props.pagination.currentPage + 1;
+
+        page > this.props.pagination.totalPages ? this.props.onPageChange(this.props.pagination.totalPages) : this.props.onPageChange(this.props.pagination.currentPage + 1);
     }
 
     previousPage = () => {
-        this.props.onPageChange(this.props.pagination.currentPage - 1);
+        const page = this.props.pagination.currentPage - 1;
+
+        page < 1 ? this.props.onPageChange(1) : this.props.onPageChange(this.props.pagination.currentPage - 1);
     }
 
     bulkPageChange = direction => {
@@ -111,10 +114,14 @@ class Pagination extends React.Component {
                         <FontAwesome className="pagination-arrow" name="angle-double-right" onClick={() => this.bulkPageChange("forward")} />
                     </div>
                 </div>
-                <form className="custom-page" onSubmit={this.customPage}>
-                    <input type="number" value={this.state.customPage} name="custom-page" placeholder={"Pg #"} onChange={this.handleInputChange} min="1" max={this.props.pagination.totalPages}></input>
-                    <span>/ {this.props.pagination.totalPages}</span>
-                </form>
+                {
+                    this.props.browserWidth >= 567 ? (
+                        <form className="custom-page" onSubmit={this.customPage}>
+                            <input type="number" value={this.state.customPage} name="custom-page" placeholder={"Pg #"} onChange={this.handleInputChange} min="1" max={this.props.pagination.totalPages}></input>
+                            <span>/ {this.props.pagination.totalPages}</span>
+                        </form>
+                    ) : null
+                }
             </div>
         )
     }

@@ -2,13 +2,22 @@
 
 #App {
     .main-container {
+        background-image: url("../static/images/pink-texture.png");
+        &.landing {
+            margin-top: 15vh;
+        }
         margin: 0 6rem;
+        padding: 1rem;
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        h1 {
+            @include titleShadow;
+        }
         .fade-in-appear {
             opacity: 0;
         }  
         .fade-in-appear.fade-in-appear-active {
         opacity: 1;
-        transition: opacity 2s linear;
+        transition: opacity 0.8s linear;
         }
         .landing-page-wrapper{
             display: flex;
@@ -19,13 +28,15 @@
                 text-align: center;
                 font-size: 6rem;
                 margin: 2rem auto;
+                color: $primary-text;
             }
             .landing-page-text {
-                width: 60%;
+                @include letterpress;
                 margin: 0.5rem auto;
                 text-align: center;
                 font-family: $font-main;
-                line-height: 1.7rem;
+                font-size: 2rem;
+                color: #51fbff;
             }
         }
         .nav-page-wrapper {
@@ -35,6 +46,7 @@
             h1 {
                 margin: 0;
                 font-size: 3rem;
+                color: $primary-text;
             }
         }
         .polaroid-marker {
@@ -47,17 +59,23 @@
 #App {
     .main-container {
         @media screen and (min-width: $mobile-S) and (max-width: $tablet-cap){
-            margin: 0 0.5rem;
+            margin: 0 0.1rem;
         }
         .landing-page-wrapper {
             @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
                 .landing-page-title {
                     font-size: 2.5rem;
                 }
+                .landing-page-text {
+                    font-size: 0.83rem;
+                }
             }
             @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
                 .landing-page-title {
                     font-size: 3.5rem;
+                }
+                .landing-page-text {
+                    font-size: 1.16rem;
                 }
             }
         }

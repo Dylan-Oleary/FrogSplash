@@ -1,6 +1,7 @@
 @import "../variables.scss";
 
 #Pagination {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,18 +11,24 @@
         display: flex;
         justify-content: center;
         flex-grow: 2;
+        width: 100%;
         .controls{
+            position: relative;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            max-width: 550px;
+            width: 70%;
             font-size: 1.5rem;
+            background: #51fbff;
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            background-image: url("../static/images/input-texture.png");
+            padding: 0.5rem;
             cursor: pointer;
-            span {
-                padding: 0.3rem;
+            .pagination-number {
                 display: flex;
-                align-items: center;
                 justify-content: center;
+                align-items: center;
             }
             .inactive {
                 transition: 0.2s transform ease-out;
@@ -30,37 +37,44 @@
                 }
             }
             .active {
-                padding: 0 1rem 0 ;
-                font-size: 1.7rem;
+                @include titleShadow;
+                font-size: 2.2rem;
                 font-family: $font-polaroid;
-                border-bottom: 3px solid #000;
-                border-radius: 10px;
-                box-shadow: 0 8px 6px -6px black;
             }
             .pagination-arrow {
-                font-size: 1.95rem;
+                display: flex;
+                align-items: center;
                 transition: transform 0.2s;
+                span {
+                    padding-top: 50%;
+                }
                 &:hover{
-                    transform: scale(1.5);
+                    transform: scale(1.2);
                 }
             }
         }    
     }
     .custom-page {
         display: flex;
-        margin-left: 0.2rem;
-        font-size: 1.5rem;
+        position: absolute;
+        right: 0;
+        border: 2px solid #000;
+        border-radius: 10px;
+        background-image: url("../static/images/input-texture.png");
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        text-align: center;
+        padding: 0.2rem;
         span {
             display: flex;
             align-items: center;
             margin-left: 0.2rem;
         }
         input {
-            border: none;
-            width: 60px;
-            border-bottom: 1px solid black;
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-family: inherit;
+            background: transparent;
+            border: none;
+            text-align: center;
             cursor: pointer;
             &:focus{
                 outline: none;
@@ -77,78 +91,79 @@
 //Media Query
 #Pagination {
     @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
-        .controls {
-            max-width: 260px !important;
-            font-size: 0.9rem !important;
-            .active {
-                font-size: 1.1rem !important;
-            }
-            .pagination-arrow {
-                font-size: 1.1rem !important;
-            }
-        }
-        .custom-page {
-            font-size: 0.7rem;
-            input {
-                width: 25px;
-                font-size: 0.7rem;
+        .control-wrapper{
+            .controls {
+                width: 100%;
+                font-size: 0.9rem !important;
+                .active {
+                    font-size: 1.3rem !important;
+                }
+                .pagination-arrow {
+                    font-size: 1.1rem !important;
+                }
             }
         }
     }
     @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap){
-        .controls {
-            max-width: 280px !important;
-            font-size: 1rem !important;
-            .active {
-                font-size: 1.2rem !important;
-            }
-            .pagination-arrow {
-                font-size: 1.45rem !important;
-            }
-        }
-        .custom-page {
-            font-size: 0.8rem;
-            input {
-                width: 35px;
-                font-size: 0.8rem;
+        .control-wrapper {
+            .controls {
+                width: 100%;
+                font-size: 1rem !important;
+                .active {
+                    font-size: 1.46rem !important;
+                }
+                .pagination-arrow {
+                    font-size: 1.22rem !important;
+                }
             }
         }
     }
     @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap){
-        .controls {
-            max-width: 375px !important;
-            font-size: 1.3rem !important;
-            .active {
-                font-size: 1.5rem !important;
-            }
-            .pagination-arrow {
-                font-size: 1.75rem !important;
+        .control-wrapper{
+            justify-content: flex-start;
+            max-width: 75%;
+            .controls {
+                width: 100%;
+                font-size: 1rem !important;
+                .active {
+                    font-size: 1.46rem !important;
+                }
+                .pagination-arrow {
+                    font-size: 1.22rem !important;
+                }
             }
         }
         .custom-page {
-            font-size: 1rem;
+            span {
+                font-size: 0.8rem !important;
+            }
             input {
-                width: 45px;
-                font-size: 1rem;
+                width: 30px !important;
+                font-size: 0.8rem !important;
             }
         }
     }
     @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
-        .controls {
-            max-width: 420px !important;
-            font-size: 1.3rem !important;
-            .active {
-                font-size: 1.5rem !important;
-            }
-            .pagination-arrow {
-                font-size: 1.75rem !important;
+        .control-wrapper {
+            width: 80%;
+            .controls {
+                width: 65%;
+                font-size: 1.3rem !important;
+                .active {
+                    font-size: 1.9rem !important;
+                }
+                .pagination-arrow {
+                    font-size: 1.58rem !important;
+                }
             }
         }
         .custom-page {
-            font-size: 1.3rem;
+            span {
+                font-size: 1rem !important;
+            }
             input {
-                width: 55px;
-                font-size: 1.3rem;
+                width: 40px !important;
+                font-size: 1rem !important;
             }
         }
     }
