@@ -76,13 +76,10 @@ class App extends React.Component {
                                     <div className="landing-page-wrapper">
                                         <h1 className={`${this.state.pageStatus}-page-title polaroid-marker`}>FrogSplash</h1>
                                         <p className="landing-page-text">
-                                            Think about what you want to see.
+                                            You search for something...
                                         </p>
                                         <p className="landing-page-text">
-                                            Jump from the top rope into the search bar.
-                                        </p>
-                                        <p className="landing-page-text">
-                                            Make a splash.
+                                            FrogSplash dives into the Unsplash API to grab you amazing photos!
                                         </p>
                                         <SearchBar
                                             className="landing-page-search"

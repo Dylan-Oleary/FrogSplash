@@ -1,4 +1,4 @@
-// @import "../variables.scss";
+@import "../variables.scss";
 
 #Error {
     @include letterpress;
@@ -7,7 +7,7 @@
     .error-text {
         font-family: $font-main;
         font-size: 1.5rem;
-        color: #51fbff;
+        color: #f7f4e8;
         text-align: center;
     }
     .error-term {

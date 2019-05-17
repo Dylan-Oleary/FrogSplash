@@ -115,7 +115,7 @@ class Pagination extends React.Component {
                     </div>
                 </div>
                 {
-                    this.props.browserWidth >= 567 ? (
+                    this.props.browserWidth >= 768 ? (
                         <form className="custom-page" onSubmit={this.customPage}>
                             <input type="number" value={this.state.customPage} name="custom-page" placeholder={"Pg #"} onChange={this.handleInputChange} min="1" max={this.props.pagination.totalPages}></input>
                             <span>/ {this.props.pagination.totalPages}</span>

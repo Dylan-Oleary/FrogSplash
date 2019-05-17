@@ -4,7 +4,7 @@ const Error = ({searchTerm}) => {
     return (
         <div id="Error">
             <p className="error-text">
-                Hey, I looked hard but I seriously couldn't find any photos of 
+                Oops! We couldn't find any photos of 
             </p>
             <p className="error-term">
                 {searchTerm}

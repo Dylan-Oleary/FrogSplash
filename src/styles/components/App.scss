@@ -36,7 +36,7 @@
                 text-align: center;
                 font-family: $font-main;
                 font-size: 2rem;
-                color: #51fbff;
+                color: #f7f4e8;
             }
         }
         .nav-page-wrapper {
@@ -64,10 +64,10 @@
         .landing-page-wrapper {
             @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
                 .landing-page-title {
-                    font-size: 2.5rem;
+                    font-size: 3rem;
                 }
                 .landing-page-text {
-                    font-size: 0.83rem;
+                    font-size: 1.4rem;
                 }
             }
             @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
@@ -75,7 +75,7 @@
                     font-size: 3.5rem;
                 }
                 .landing-page-text {
-                    font-size: 1.16rem;
+                    font-size: 1.63rem;
                 }
             }
         }

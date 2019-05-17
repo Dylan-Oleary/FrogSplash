@@ -32,8 +32,7 @@ class SearchBar extends React.Component {
                         ref={this.inputRef} 
                         type="text" 
                         value={this.state.searchTerm} 
-                        name="search" onChange={this.handleInputChange} 
-                        autoFocus 
+                        name="search" onChange={this.handleInputChange}
                         spellCheck="false" 
                         placeholder={this.props.placeholder ? this.props.placeholder : ""}
                     />
