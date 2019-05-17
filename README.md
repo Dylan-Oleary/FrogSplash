@@ -1,6 +1,6 @@
 # FrogSplash
 
-FrogSplsh is a simple application that serves one function: to bring the user amazing photos! Using the Unsplash API (https://unsplash.com "Unsplash") FrogSplash searches for photos of whatever the user inputs. Each photo contains relevant photographer information such as their name, bio and social media links.
+FrogSplsh is a simple application that serves one function: to bring the user amazing photos! Using the Unsplash API [Unsplash](https://unsplash.com "Unsplash") FrogSplash searches for photos of whatever the user inputs. Each photo contains relevant photographer information such as their name, bio and social media links.
 
 [Live Application](https://frogsplash.netlify.com/)
 
