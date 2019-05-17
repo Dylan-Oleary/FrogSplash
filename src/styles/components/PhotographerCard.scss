@@ -88,10 +88,18 @@
 
 //Media Queries
 #PhotographerCard {
-    @media screen and (min-width: $mobile-S) and (max-width: $mobile-XL-cap){
+    @media screen and (min-width: $mobile-S) and (max-width: $tablet-cap){
         min-height: 0;
-        transform: none;
-        transition: none;
+        .block-content {
+            .block-social {
+                a {
+                    transition: none !important;
+                    &:hover {
+                        transform: none !important;
+                    }
+                }
+            }
+        }
     }
     @media screen and (min-width: $mobile-S) and (max-width: $mobile-S-cap){
         width: 100%;
