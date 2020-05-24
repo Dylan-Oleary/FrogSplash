@@ -1,124 +1,33 @@
 @import "../variables.scss";
 
-#SearchBar{
-    font-family: $font-polaroid;
+#SearchBar {
     form {
         display: flex;
+        width: 100%;
+        height: 100%;
         justify-content: flex-end;
         align-items: center;
-        width: 100%;
-        .search-input {
-            @include letterpress;
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            cursor: pointer;
-            &:focus{
+        font-size: 2rem;
+        position: relative;
+        margin-top: 3px;
+
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid $color-pink;
+            font-size: 1.5rem;
+            color: $color-pink;
+            font-family: $font-main;
+            margin-left: 10px;
+            margin-top: 10px;
+            height: 30px;
+            &:focus {
                 outline: none;
             }
-            border: 2px solid #000;
-            padding-bottom: 0.2rem;
-            padding-left: 0.5rem;
-            margin-left: 0.3rem;
-            background-image: url("../static/images/input-texture.png");
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
-        span {
-            @include letterpress;
-            display: flex;
-            align-items: center;
-            color: $primary-text;
-        }
-    }
-    &.landing-page-search {
-        display: flex;
-        width: 100%;
-        margin-top: 3rem;
-        form {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            .search-input {
-                width: 80%;
-                height: 65px;
-                font-size: 3.5rem;
-                border: none;
-                text-align: center;
-                cursor: pointer;
-                &:focus{
-                    outline: none;
-                }
-            }
-        }
-    }
-    &.nav-page-search {
-        display: flex;
-        align-items: center;
-        width: 50%;
-        form {
-            .search-input {
-                width: 80%;
-                height: 40px;
-                font-size: 2rem;
-            }
-            span {
-                font-size: 2.7rem;
-            }
-        }
-    }
 
-}
-
-//Media Queries
-#SearchBar.landing-page-search {
-    @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
-        .search-input {
-            height: 20px !important;
-            font-size: 1.2rem !important;
-        }
-    }
-    @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
-        .search-input {
-            height: 25px !important;
-            font-size: 1.4rem !important;
-        }
-    }
-    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
-        .search-input {
-            height: 50px !important;
-            font-size: 3rem !important;
-            padding-left: 0.9rem !important;
-        }
-    }
-}
-
-#SearchBar.nav-page-search {
-    @media screen and (min-width: $mobile-S) and (max-width: $mobile-M-cap){
-        .search-input {
-            height: 16px !important;
-            font-size: 1rem !important;
-        }
-        span {
-            font-size: 1.4rem !important;
-        }
-    }
-    @media screen and (min-width: $mobile-L) and (max-width: $mobile-XL-cap){
-        .search-input {
-            height: 20px !important;
-            font-size: 1.2rem !important;
-        }
-        span {
-            font-size: 2rem !important;
-        }
-    }
-    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
-        .search-input {
-            height: 32px !important;
-            font-size: 2rem !important;
-            padding-left: 0.9rem !important;
-        }
-        span {
-            font-size: 2.2rem !important;
+        label {
+            margin-bottom: -5px;
         }
     }
 }

@@ -1,45 +1,40 @@
-import React from "react";
-import FontAwesome from "react-fontawesome";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-class SearchBar extends React.Component {
-    state = {
-        searchTerm: this.props.currentSearch ? this.props.currentSearch : ""
-    }
- 
-    handleInputChange = event =>{
-        this.setState({
-            searchTerm: event.target.value
-        })
-    }
+const SearchBar = () => {
+    const location = useLocation();
+    const [ searchTerm, setSearchTerm ] = useState("");
 
-    onFormSubmit = event => {
+    const onChange = event => {
+        const { value } = event.target;
+
+        setSearchTerm(value);
+    };
+
+    const onSubmit = event => {
         event.preventDefault();
 
-        const defaultPage = 1;
+        if(searchTerm.trim() !== "") window.location.assign(`${location.pathname}?search=${searchTerm}`);
+    };
 
-        this.props.onSearchSubmit(this.state.searchTerm, defaultPage);
-    }
-
-    render(){
-        return (
-            <div id="SearchBar" className={this.props.className}>
-                <form onSubmit={this.onFormSubmit} autoComplete="off">
-                    {
-                        this.props.icon === true ? <FontAwesome name="frog"/> : null
-                    }
-                    <input 
-                        className="search-input polaroid-marker" 
-                        ref={this.inputRef} 
-                        type="text" 
-                        value={this.state.searchTerm} 
-                        name="search" onChange={this.handleInputChange}
-                        spellCheck="false" 
-                        placeholder={this.props.placeholder ? this.props.placeholder : ""}
-                    />
-                </form>
-            </div>
-        )
-    }
-}
+    return (
+        <div id="SearchBar">
+            <form
+                autoComplete="off"
+                onSubmit={onSubmit}
+            >
+                <label htmlFor="search">show me</label>
+                <input 
+                    name="search"
+                    type="text" 
+                    value={searchTerm}
+                    onChange={onChange}
+                    spellCheck="false" 
+                    placeholder={""}
+                />
+            </form>
+        </div>
+    );
+};
 
 export default SearchBar;

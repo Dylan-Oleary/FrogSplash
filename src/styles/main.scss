@@ -3,14 +3,43 @@
 @import "./components/CarouselController.scss";
 @import "./components/Error.scss";
 @import "./components/ImageCard.scss";
-@import "./components/Modal.scss";
-@import "./components/Pagination.scss";
 @import "./components/PhotographerCard.scss";
 @import "./components/SearchBar.scss";
+@import "./pages/Home.scss";
 
-html {
-    height: 100vh;
-    body {
-        background-image: url("../static/images/purple-texture.png");
+html, #root, #App, .main-container {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: #222;
+    font-family: $font-main;
+    font-size: 16px;
+    color: $primary-text;
+    padding: 1rem;
+    margin: 0;
+}
+
+#App {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    color: $primary-text;
+}
+
+.text-pink {
+    color: $color-pink;
+}
+
+.results-found {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 1.25rem;
+    span {
+        margin-left: 5px;
     }
 }

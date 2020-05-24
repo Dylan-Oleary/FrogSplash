@@ -15,10 +15,12 @@ $desktop: 1440px;
 
 //Fonts
 $font-polaroid: 'Permanent Marker', cursive;
-$font-main: 'Lato', sans-serif;
+$font-main: "Oswald", sans-serif;
+// $font-main: 'Lato', sans-serif;
 
 //Colors
-$primary-text: #4ae01d;
+$primary-text: #FFF;
+$color-pink: #C506AB;
 @mixin instagram {
     color: #fff;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
@@ -37,3 +39,4 @@ $primary-text: #4ae01d;
 @mixin titleShadow {
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
 }
+

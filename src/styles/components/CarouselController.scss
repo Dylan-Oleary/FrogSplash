@@ -23,32 +23,3 @@
         }
     }
 }
-
-//Media Queries
-#CarouselController {
-    @media screen and (min-width: $mobile-S) and (max-width: $mobile-S-cap){
-        width: 200px;
-        top: 470px;
-        margin-left: -100px;
-    }
-    @media screen and (min-width: $mobile-M) and (max-width: $mobile-M-cap){
-        width: 224px;
-        top: 490px;
-        margin-left: -112px;
-    }
-    @media screen and (min-width: $mobile-L) and (max-width: $mobile-L-cap){
-        width: 251px;
-        top: 525px;
-        margin-left: -125.5px;
-    }
-    @media screen and (min-width: $mobile-XL) and (max-width: $mobile-XL-cap){
-        width: 520px;
-        top: 353px;
-        margin-left: -260px;
-    }
-    @media screen and (min-width: $tablet) and (max-width: $tablet-cap){
-        width: 720px;
-        top: 328.5px;
-        margin-left: -360px;
-    }
-}
