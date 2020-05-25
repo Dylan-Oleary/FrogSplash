@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+import useScreenSize from "../hooks/useScreenSize";
 
 const SearchBar = () => {
     const location = useLocation();
     const [ searchTerm, setSearchTerm ] = useState("");
+    const isMobile = useScreenSize(567);
 
     const onChange = event => {
         const { value } = event.target;
@@ -23,7 +28,12 @@ const SearchBar = () => {
                 autoComplete="off"
                 onSubmit={onSubmit}
             >
-                <label htmlFor="search">show me</label>
+                <label htmlFor="search">
+                    {isMobile
+                        ? <FontAwesomeIcon icon={faSearch} />
+                        : "show me"
+                    }
+                </label>
                 <input 
                     name="search"
                     type="text" 

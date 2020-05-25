@@ -1,4 +1,9 @@
+@import "./components/GridImage.scss";
+@import "./components/Header.scss";
+@import "./components/Loading.scss";
+@import "./components/PhotographerCard.scss";
 @import "./components/SearchBar.scss";
+@import "./components/TopScrollButton.scss";
 @import "./pages/Home.scss";
 
 html, #root, #App, .main-container {
@@ -7,9 +12,9 @@ html, #root, #App, .main-container {
 
 body {
     min-height: 100%;
-    background: #222;
+    background: $color-black;
     font-size: 16px;
-    color: $primary-text;
+    color: $color-white;
     padding: 1rem;
     margin: 0;
 
@@ -24,7 +29,7 @@ body {
 }
 
 a {
-    color: $primary-text;
+    color: $color-white;
 }
 
 .text-pink {
@@ -39,4 +44,10 @@ a {
     span {
         margin-left: 5px;
     }
+}
+
+.alert {
+    margin: 2rem auto;
+    font-size: 1.25rem;
+    text-align: center;
 }

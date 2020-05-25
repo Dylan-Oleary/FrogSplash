@@ -12,9 +12,11 @@
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-loading": "^2.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.0",
-    "react-spring": "^8.0.27"
+    "react-spring": "^8.0.27",
+    "smooth-scroll": "^16.1.3"
   },
   "scripts": {
     "dev": "react-scripts start",

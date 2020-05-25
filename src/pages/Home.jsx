@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import useImageSearch from "../hooks/useImageSearch";
 import GridImage from "../components/GridImage";
 import Header from "../components/Header";
+import TopScrollButton from "../components/TopScrollButton";
+import Loading from "../components/Loading";
 
 const Home = () => {
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -46,7 +48,7 @@ const Home = () => {
             </div>}
             <div className="image-grid">
                 {images.map((image, index) => {
-                    if(index === images.length - 1){
+                    if(index === images.length - 10){
                         return(
                             <GridImage
                                 key={index}
@@ -64,8 +66,10 @@ const Home = () => {
                     }
                 })}
             </div>
-            {isLoading && <div>LOADING</div>}
-            {error && <div>ERROR</div>}
+            {isLoading && <Loading />}
+            {error && <div className="alert">Oh no! Something went wrong when trying to fetch your images</div>}
+            {(!hasMore && !isLoading) &&<div className="alert">You've reached the end! Try searching for something else.</div>}
+            <TopScrollButton />
         </div>
     );
 };

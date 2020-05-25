@@ -30,4 +30,18 @@
             margin-bottom: -5px;
         }
     }
+
+    @media screen and (max-width: $mobile-L-cap) {
+        form {
+            font-size: 1.25rem;
+
+            input {
+                font-size: 0.95rem;
+            }
+
+            label {
+                margin-bottom: -7px;
+            }
+        }
+    }
 }

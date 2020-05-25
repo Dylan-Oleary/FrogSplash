@@ -21,7 +21,7 @@ const GridImage = ({
     });
 
     return (
-        <div className="grid-item">
+        <div className="grid-image">
             <animated.div
                 className={`image-card ${itemClassName}`}
                 onMouseOver={() => setItemClassName("hover")}
@@ -53,10 +53,10 @@ const GridImage = ({
                 <div className="image-details">
                     <button
                         type="button"
-                        aria-label="View Details"
+                        aria-label="View Photographer"
                         onClick={() => setFlipped(!flipped)}
                     >
-                        View Details
+                        View Photographer
                     </button>
                 </div>
             </animated.div>

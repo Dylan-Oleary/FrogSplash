@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 
 const Header = () => {
     return (
-        <div className="header">
+        <div id="Header" className="header">
             <a href="/">
                 <h1>
                     Frog
