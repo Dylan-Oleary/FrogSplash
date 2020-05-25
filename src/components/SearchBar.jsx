@@ -30,7 +30,7 @@ const SearchBar = () => {
                     value={searchTerm}
                     onChange={onChange}
                     spellCheck="false" 
-                    placeholder={""}
+                    placeholder={"enter search"}
                 />
             </form>
         </div>

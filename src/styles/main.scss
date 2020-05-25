@@ -1,9 +1,3 @@
-@import "./components/App.scss";
-@import "./components/ButtonUI.scss";
-@import "./components/CarouselController.scss";
-@import "./components/Error.scss";
-@import "./components/ImageCard.scss";
-@import "./components/PhotographerCard.scss";
 @import "./components/SearchBar.scss";
 @import "./pages/Home.scss";
 
@@ -14,11 +8,14 @@ html, #root, #App, .main-container {
 body {
     min-height: 100%;
     background: #222;
-    font-family: $font-main;
     font-size: 16px;
     color: $primary-text;
     padding: 1rem;
     margin: 0;
+
+    * {
+        font-family: $font-main;
+    }
 }
 
 #App {
