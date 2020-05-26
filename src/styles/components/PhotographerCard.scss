@@ -30,6 +30,11 @@
             height: 20px;
             width: 20px;
 
+            &.unsplash {
+                left: 5px;
+                right: 0px;
+            }
+
             svg {
                 height: 15px;
                 width: 15px;
@@ -51,6 +56,7 @@
             width: 75px;
             margin: 0.5rem auto 0;
             border-radius: 100%;
+            border: 5px solid $color-pink;
         }
         .name {
             font-size: 1.25rem;

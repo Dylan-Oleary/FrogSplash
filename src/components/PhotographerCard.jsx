@@ -1,12 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faFolder, faCameraRetro, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
-
+import { faExternalLinkAlt ,faFolder, faCameraRetro, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
 
 const PhotographerCard = ({
     photographer,
-    flipCard
+    flipCard,
+    unsplashViewLink
 }) => {
     return (
         <div className="card-content">
@@ -17,6 +17,19 @@ const PhotographerCard = ({
             >
                 <FontAwesomeIcon icon={faUndoAlt} />
             </button>
+            <a
+                href={unsplashViewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <button
+                    type="button"
+                    aria-label="View on Unsplash"
+                    className="unsplash"
+                >
+                    <FontAwesomeIcon icon={faExternalLinkAlt} />
+                </button>
+            </a>
             <img
                 src={photographer.profile_image.large}
                 alt={photographer.name}

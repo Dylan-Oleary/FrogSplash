@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
+import { isMobile, isTablet } from "react-device-detect";
 
 import PhotographerCard from "../components/PhotographerCard";
 
@@ -12,6 +13,7 @@ const GridImage = ({
     const [ flipped, setFlipped ] = useState(false);
     const {
         description,
+        links,
         urls
     } = image;
     const { transform, opacity } = useSpring({
@@ -24,8 +26,9 @@ const GridImage = ({
         <div className="grid-image">
             <animated.div
                 className={`image-card ${itemClassName}`}
-                onMouseOver={() => setItemClassName("hover")}
-                onMouseOut={() => setItemClassName("")}
+                onMouseOver={!isMobile && !isTablet ? () => setItemClassName("hover") : null}
+                onMouseOut={!isMobile && !isTablet ? () => setItemClassName("") : null}
+                onClick={(isMobile || isTablet) ? () => setFlipped(true) : null}
                 style={{
                     opacity: opacity.interpolate(o => 1 - o),
                     transform,
@@ -50,7 +53,7 @@ const GridImage = ({
                         />
                     )
                 }
-                <div className="image-details">
+                {(!isMobile && !isTablet) && <div className="image-details">
                     <button
                         type="button"
                         aria-label="View Photographer"
@@ -58,7 +61,7 @@ const GridImage = ({
                     >
                         View Photographer
                     </button>
-                </div>
+                </div>}
             </animated.div>
             <animated.div
                 className="photographer-card"
@@ -73,6 +76,7 @@ const GridImage = ({
                 <PhotographerCard
                     flipCard={() => setFlipped(false)}
                     photographer={image.user}
+                    unsplashViewLink={links.html}
                 />
             </animated.div>
         </div>

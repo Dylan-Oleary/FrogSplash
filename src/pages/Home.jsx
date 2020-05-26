@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { isMobile, isTablet } from "react-device-detect";
 
 import useImageSearch from "../hooks/useImageSearch";
 import GridImage from "../components/GridImage";
@@ -44,7 +45,9 @@ const Home = () => {
                 <span className="text-pink">{searchTerm[1].toUpperCase()}</span>
             </div>}
             {isLanding && <div className="results-found">
-                Welcome To FrogSplash. Find the web's best photos and photographers.
+                Welcome To FrogSplash. Explore the web's best photos.
+                <br/>
+                {(isMobile || isTablet) && "Tap a photo to meet the person who took the shot!"}
             </div>}
             <div className="image-grid">
                 {images.map((image, index) => {
