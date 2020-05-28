@@ -71,7 +71,12 @@ const Home = () => {
             </div>
             {isLoading && <Loading />}
             {error && <div className="alert">Oh no! Something went wrong when trying to fetch your images</div>}
-            {(!hasMore && !isLoading) &&<div className="alert">You've reached the end! Try searching for something else.</div>}
+            {(!hasMore && !isLoading) && <div className="alert">
+                {images.length > 0
+                    ? "You've reached the end! Try searching for something else"
+                    : <div>No results found for <span className="text-pink">{searchTerm[1].toUpperCase()}</span>. Try searching for something else!</div>
+                }
+            </div>}
             <TopScrollButton />
         </div>
     );
