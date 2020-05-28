@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { isMobile, isTablet } from "react-device-detect";
 
@@ -12,7 +12,7 @@ const GridImage = ({
     const [ itemClassName, setItemClassName ] = useState("");
     const [ flipped, setFlipped ] = useState(false);
     const {
-        description = "No Description Found",
+        alt_description,
         links,
         urls
     } = image;
@@ -23,7 +23,12 @@ const GridImage = ({
     });
 
     return (
-        <div className="grid-image">
+        <div
+            className="grid-image"
+            style={{
+                gridRowEnd: `span ${image.height > image.width * 1.25 ? 2 : 1}`
+            }}
+        >
             <animated.div
                 className={`image-card ${itemClassName}`}
                 onMouseOver={!isMobile && !isTablet ? () => setItemClassName("hover") : null}
@@ -42,13 +47,13 @@ const GridImage = ({
                         <img
                             ref={infiniteScrollRef}
                             src={urls.regular}
-                            alt={description}
+                            alt={alt_description}
                             loading="lazy"
                         />
                     ) : (
                         <img
                             src={urls.regular}
-                            alt={description}
+                            alt={alt_description}
                             loading="lazy"
                         />
                     )
