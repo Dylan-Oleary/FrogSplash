@@ -12,7 +12,7 @@ const GridImage = ({
     const [ itemClassName, setItemClassName ] = useState("");
     const [ flipped, setFlipped ] = useState(false);
     const {
-        description,
+        description = "No Description Found",
         links,
         urls
     } = image;
