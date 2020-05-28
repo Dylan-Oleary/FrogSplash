@@ -18,6 +18,7 @@ const useImageSearch = (query, pageNumber) => {
             unsplash.get("/search/photos", {
                 params: {
                     query: query,
+                    auto: "format",
                     per_page: 24,
                     page: pageNumber
                 }

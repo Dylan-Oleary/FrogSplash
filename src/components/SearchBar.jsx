@@ -34,7 +34,8 @@ const SearchBar = () => {
                         : "show me"
                     }
                 </label>
-                <input 
+                <input
+                    id="search"
                     name="search"
                     type="text" 
                     value={searchTerm}

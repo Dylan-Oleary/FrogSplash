@@ -21,6 +21,7 @@ const PhotographerCard = ({
                 href={unsplashViewLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View On Unsplash.com"
             >
                 <button
                     type="button"
@@ -41,6 +42,7 @@ const PhotographerCard = ({
                     href={`https://www.instagram.com/${photographer.instagram_username}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Photographer On Instagram"
                 >
                     <FontAwesomeIcon icon={faInstagram} />
                 </a>}
@@ -48,6 +50,7 @@ const PhotographerCard = ({
                     href={`https://www.twitter.com/${photographer.twitter_username}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Photographer On Twitter"
                 >
                     <FontAwesomeIcon icon={faTwitter} />
                 </a>}
@@ -55,6 +58,7 @@ const PhotographerCard = ({
                     href={photographer.portfolio_url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Photographer's Portfolio"
                 >
                     <FontAwesomeIcon icon={faFolder} />
                 </a>}
@@ -62,6 +66,7 @@ const PhotographerCard = ({
                     href={`https://unsplash.com/@${photographer.username}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Photographer On Unsplash"
                 >
                     <FontAwesomeIcon icon={faCameraRetro} />
                 </a>}
