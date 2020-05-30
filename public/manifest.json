@@ -1,15 +1,22 @@
 {
-  "short_name": "FrogSplash",
-  "name": "FrogSplash",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#C506AB",
-  "background_color": "#222"
+    "name": "FrogSplash",
+    "short_name": "FrogSplash",
+    "description": "Explore the web's best photos",
+    "display": "minimal-ui",
+    "lang": "en",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "theme_color": "#222222",
+    "background_color": "#222222"
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { isMobile, isTablet } from "react-device-detect";
 
@@ -25,9 +25,7 @@ const GridImage = ({
     return (
         <div
             className="grid-image"
-            style={{
-                gridRowEnd: `span ${image.height > image.width * 1.25 ? 2 : 1}`
-            }}
+            style={{ gridRowEnd: `span ${image.height > image.width * 1.25 ? 2 : 1}` }}
         >
             <animated.div
                 className={`image-card ${itemClassName}`}
@@ -77,6 +75,7 @@ const GridImage = ({
                     width: "100%",
                     zIndex: flipped ? 1 : 0
                 }}
+                onClick={(isMobile || isTablet) ? () => setFlipped(false) : null}
             >
                 <PhotographerCard
                     flipCard={() => setFlipped(false)}
