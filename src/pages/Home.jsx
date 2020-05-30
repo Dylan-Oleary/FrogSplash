@@ -21,7 +21,7 @@ const Home = () => {
         images,
         isLoading,
         total
-    } = useImageSearch(searchTerm !== null ? searchTerm[1] : "random", currentPage);
+    } = useImageSearch(searchTerm !== null ? decodeURI(searchTerm[1]) : "random", currentPage);
     const triggerInfiniteScrollRef = useCallback(node => {
         if(isLoading) return;
         if(observer.current) observer.current.disconnect();
@@ -42,7 +42,7 @@ const Home = () => {
             <Header />
             {(!isLanding && images.length > 0) && <div className="results-found">
                 {`${total} Results Found For`}
-                <span className="text-pink">{searchTerm[1].toUpperCase()}</span>
+                <span className="text-pink">{decodeURI(searchTerm[1].toUpperCase())}</span>
             </div>}
             {isLanding && <div className="results-found">
                 Welcome To FrogSplash. Explore the web's best photos.
